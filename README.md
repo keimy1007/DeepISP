@@ -2,6 +2,8 @@
 
 Deep learning models for ISP (Imo Sphenoidal Perimetry) to HFA (Humphrey Field Analyzer) conversion
 
+![DeepISP Overview](images/DeepISP.png)
+
 ## Overview
 
 ISPデータからHFAパラメータを予測する深層学習モデル:
@@ -112,24 +114,34 @@ DeepISP/
 #### ISP2HFA Output
 ```json
 {
-  "MD": -5.2,           // Mean Deviation (dB)
-  "PSD": 4.3,          // Pattern Standard Deviation (dB)
-  "VFI": 85.0,         // Visual Field Index (%)
-  "GHT_prob": 0.23,    // Glaucoma Hemifield Test異常確率
-  "pattern_map": [...], // Pattern Deviation Map (52点, 0-4のクラス)
-  "total_map": [...]    // Total Deviation Map (52点, 0-4のクラス)
+  "MD": -5.2,
+  "PSD": 4.3,
+  "VFI": 85.0,
+  "GHT_prob": 0.23,
+  "pattern_map": [...],
+  "total_map": [...]
 }
 ```
+- **MD**: Mean Deviation (dB)
+- **PSD**: Pattern Standard Deviation (dB)
+- **VFI**: Visual Field Index (%)
+- **GHT_prob**: Glaucoma Hemifield Test異常確率
+- **pattern_map**: Pattern Deviation Map (52点, 0-4のクラス)
+- **total_map**: Total Deviation Map (52点, 0-4のクラス)
 
 #### ISP2HFAprog Output
 ```json
 {
-  "MD_slope": -0.5,     // MD変化率 (dB/year)
-  "VFI_slope": -1.2,    // VFI変化率 (%/year)
-  "MD_prog_prob": 0.85, // MD進行確率
-  "VFI_prog_prob": 0.72 // VFI進行確率
+  "MD_slope": -0.5,
+  "VFI_slope": -1.2,
+  "MD_prog_prob": 0.85,
+  "VFI_prog_prob": 0.72
 }
 ```
+- **MD_slope**: MD変化率 (dB/year)
+- **VFI_slope**: VFI変化率 (%/year)
+- **MD_prog_prob**: MD進行確率
+- **VFI_prog_prob**: VFI進行確率
 
 ## Model Information
 
