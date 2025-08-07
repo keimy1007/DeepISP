@@ -1,6 +1,6 @@
 # DeepISP
 
-Deep learning models for ISP (Imo Sphenoidal Perimetry) to HFA (Humphrey Field Analyzer) conversion
+Deep learning models for ISP (Imo Screening Program) to HFA (Humphrey Field Analyzer) conversion
 
 ![DeepISP Overview](images/DeepISP.png)
 
@@ -177,12 +177,17 @@ python scripts/main.py --isp "1,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,
 - 実データは`datasets/`ディレクトリに配置してください（gitignore対象）
 - サンプルデータは`datasets_sample/`に含まれています
 
-## License
-
-[License information here]
-
 ## Citation
 
+Shimizu K, Motegi M, Akasaki Y, et al. Deep Learning Models for Predicting Standard Automated Perimetry Results and Progression From Imo Screening Program. Ophthalmology Science. 2025.
+
 ```bibtex
-[Citation information here]
+@article{shimizu2025deep,
+  title={Deep Learning Models for Predicting Standard Automated Perimetry Results and Progression From Imo Screening Program},
+  author={Shimizu, Kenji and Motegi, Mari and Akasaki, Yukihiro and others},
+  journal={Ophthalmology Science},
+  year={2025},
+  publisher={Elsevier},
+  url={https://www.ophthalmologyscience.org/article/S2666-9145(25)00103-4/fulltext}
+}
 ```
