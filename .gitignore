@@ -19,7 +19,6 @@ venv/
 !/datasets_sample/
 /outputs/
 /figures/
-/images/
 
 # Model weights (exclude real models but keep sample ones)
 *.pth
