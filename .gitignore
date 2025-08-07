@@ -1,0 +1,45 @@
+*legacy*
+.claude*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data and outputs
+/datasets/
+!/datasets_sample/
+/outputs/
+/figures/
+/images/
+
+# Model weights (exclude real models but keep sample ones)
+*.pth
+*.pt
+# Keep sample models in params directory
+!params/ISP2HFA/simulated_240318/model_simulated_20240304000001.pth
+!params/ISP2HFAprog/simulated_240318/model_simulated_20240318000001_0.pth
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# src folder
+src/
+EOF < /dev/null
