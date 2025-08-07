@@ -6,9 +6,9 @@ Deep learning models for ISP (Imo Screening Program) to HFA (Humphrey Field Anal
 
 ## Overview
 
-ISPデータからHFAパラメータを予測する深層学習モデル:
-- **ISP2HFA**: ISPからHFA視野検査結果（MD, PSD, VFI, Pattern/Total Deviation Map）を予測
-- **ISP2HFAprog**: ISPから視野進行指標（MD slope, VFI slope, 進行確率）を予測
+Deep learning models for predicting HFA parameters from ISP data:
+- **ISP2HFA**: Predicts HFA visual field test results (MD, PSD, VFI, Pattern/Total Deviation Map) from ISP
+- **ISP2HFAprog**: Predicts visual field progression metrics (MD slope, VFI slope, progression probability) from ISP
 
 ## Requirements
 
@@ -16,7 +16,7 @@ ISPデータからHFAパラメータを予測する深層学習モデル:
 pip install -r requirements.txt
 ```
 
-**Note**: NumPy 2.xで互換性の問題が発生する場合:
+**Note**: If you encounter compatibility issues with NumPy 2.x:
 ```bash
 pip install "numpy<2.0"
 ```
@@ -26,30 +26,30 @@ pip install "numpy<2.0"
 ### Basic Inference
 
 ```bash
-# 28点のISPデータから推論実行
+# Run inference with 28-point ISP data
 python scripts/main.py --isp "1,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,0,1,0"
 
-# JSONファイルから入力
+# Input from JSON file
 python scripts/main.py --isp scripts/example_input.json
 
-# 結果を保存
+# Save results
 python scripts/main.py --isp scripts/example_input.json --output results.json
 
-# 年齢を指定（デフォルト: 50）
+# Specify age (default: 50)
 python scripts/main.py --isp "1,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,0,1,0" --age 65
 ```
 
 ### ISP Simulation
 
-HFA測定値からISPデータを生成:
+Generate ISP data from HFA measurements:
 
 ```bash
-# HFA24-2データ（54点）からISPを生成
+# Generate ISP from HFA24-2 data (54 points)
 python scripts/isp_simulation.py \
   --hfa24 "30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30" \
   --age 50
 
-# HFA10-2データ（68点）からISPを生成
+# Generate ISP from HFA10-2 data (68 points)
 python scripts/isp_simulation.py \
   --hfa10 "32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32" \
   --age 50
@@ -57,20 +57,20 @@ python scripts/isp_simulation.py \
 
 ### Visualization
 
-ISPやHFAデータの可視化:
+Visualize ISP and HFA data:
 
 ```bash
-# ISPデータの可視化
+# Visualize ISP data
 python scripts/visualization.py --type isp \
   --isp-data "1,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,0,1,0" \
   --output isp_visual.png
 
-# HFA24データの可視化
+# Visualize HFA24 data
 python scripts/visualization.py --type hfa24 \
   --hfa-data "0,0,1,2,0,0,1,1,0,0,2,3,0,1,0,0,1,2,0,0,1,1,0,0,0,0,1,2,0,0,1,1,0,0,2,3,0,1,0,0,1,2,0,0,1,1,0,0,0,1,2,0" \
   --output hfa24_visual.png
 
-# ISPとHFAの比較
+# Compare ISP and HFA
 python scripts/visualization.py --type compare \
   --isp-data "1,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,0,1,0" \
   --hfa-data "0,0,1,2,0,0,1,1,0,0,2,3,0,1,0,0,1,2,0,0,1,1,0,0,0,0,1,2,0,0,1,1,0,0,2,3,0,1,0,0,1,2,0,0,1,1,0,0,0,1,2,0" \
@@ -82,32 +82,32 @@ python scripts/visualization.py --type compare \
 ```
 DeepISP/
 ├── scripts/
-│   ├── main.py                    # メイン推論スクリプト
-│   ├── models.py                  # モデル定義
-│   ├── isp2hfa_inference.py      # ISP2HFA推論
-│   ├── isp2hfaprog_inference.py  # ISP2HFAprog推論
-│   ├── isp_simulation.py         # HFAからISP生成
-│   ├── visualization.py          # 可視化
-│   └── example_input.json        # 入力例
-├── datasets_sample/               # サンプルデータセット
+│   ├── main.py                    # Main inference script
+│   ├── models.py                  # Model definitions
+│   ├── isp2hfa_inference.py      # ISP2HFA inference
+│   ├── isp2hfaprog_inference.py  # ISP2HFAprog inference
+│   ├── isp_simulation.py         # Generate ISP from HFA
+│   ├── visualization.py          # Visualization
+│   └── example_input.json        # Input example
+├── datasets_sample/               # Sample datasets
 │   ├── solid/
-│   │   ├── coord_isp.csv        # ISP測定点座標
-│   │   └── coord_hfa24.csv      # HFA24測定点座標
+│   │   ├── coord_isp.csv        # ISP measurement point coordinates
+│   │   └── coord_hfa24.csv      # HFA24 measurement point coordinates
 │   └── flex/
-│       └── *.csv                 # サンプルデータ
-├── params/                        # モデルパラメータ
+│       └── *.csv                 # Sample data
+├── params/                        # Model parameters
 │   ├── ISP2HFA/
 │   │   └── simulated_240318/
 │   └── ISP2HFAprog/
 │       └── simulated_240318/
-└── requirements.txt              # 依存パッケージ
+└── requirements.txt              # Dependencies
 ```
 
 ## Data Format
 
 ### Input ISP Data
-- 28点の0/1データ（0: 見えない, 1: 見える）
-- カンマ区切り文字列またはJSON配列として入力
+- 28-point binary data (0: not visible, 1: visible)
+- Input as comma-separated string or JSON array
 
 ### Output Format
 
@@ -125,9 +125,9 @@ DeepISP/
 - **MD**: Mean Deviation (dB)
 - **PSD**: Pattern Standard Deviation (dB)
 - **VFI**: Visual Field Index (%)
-- **GHT_prob**: Glaucoma Hemifield Test異常確率
-- **pattern_map**: Pattern Deviation Map (52点, 0-4のクラス)
-- **total_map**: Total Deviation Map (52点, 0-4のクラス)
+- **GHT_prob**: Glaucoma Hemifield Test abnormality probability
+- **pattern_map**: Pattern Deviation Map (52 points, class 0-4)
+- **total_map**: Total Deviation Map (52 points, class 0-4)
 
 #### ISP2HFAprog Output
 ```json
@@ -138,44 +138,44 @@ DeepISP/
   "VFI_prog_prob": 0.72
 }
 ```
-- **MD_slope**: MD変化率 (dB/year)
-- **VFI_slope**: VFI変化率 (%/year)
-- **MD_prog_prob**: MD進行確率
-- **VFI_prog_prob**: VFI進行確率
+- **MD_slope**: MD change rate (dB/year)
+- **VFI_slope**: VFI change rate (%/year)
+- **MD_prog_prob**: MD progression probability
+- **VFI_prog_prob**: VFI progression probability
 
 ## Model Information
 
 ### ISP2HFA Model
-- Architecture: 3層MLP with skip connections
+- Architecture: 3-layer MLP with skip connections
 - Hidden dimensions: [64, 64]
-- Input: 29次元（ISP 28点 + 年齢）
-- Output: 6タスク（pattern, total, MD, PSD, VFI, GHT）
+- Input: 29 dimensions (28 ISP points + age)
+- Output: 6 tasks (pattern, total, MD, PSD, VFI, GHT)
 
 ### ISP2HFAprog Model
-- Architecture: 3層MLP with skip connections
+- Architecture: 3-layer MLP with skip connections
 - Hidden dimensions: [16, 16]
-- Input: 29次元（ISP 28点 + 年齢）
-- Output: 4タスク（MD_slope, VFI_slope, MD_prog, VFI_prog）
+- Input: 29 dimensions (28 ISP points + age)
+- Output: 4 tasks (MD_slope, VFI_slope, MD_prog, VFI_prog)
 
 ## Environment Variables
 
-サンプルデータを使用する場合:
+To use sample data:
 ```bash
 export DATASETS_DIR=./datasets_sample
 python scripts/main.py --isp "1,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,0,1,0"
 ```
 
-実データを使用する場合（デフォルト）:
+To use real data (default):
 ```bash
-# DATASETS_DIRを設定しない場合、./datasetsが使用される
+# If DATASETS_DIR is not set, ./datasets will be used
 python scripts/main.py --isp "1,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,0,1,0"
 ```
 
 ## Notes
 
-- モデルの重みファイルは`params/`ディレクトリに配置してください
-- 実データは`datasets/`ディレクトリに配置してください（gitignore対象）
-- サンプルデータは`datasets_sample/`に含まれています
+- Place model weight files in the `params/` directory
+- Place real data in the `datasets/` directory (gitignored)
+- Sample data is included in `datasets_sample/`
 
 ## Citation
 
