@@ -20,10 +20,6 @@ venv/
 /outputs/
 /figures/
 
-# Model weights (exclude real models but keep sample ones)
-*.pth
-*.pt
-
 # IDEs
 .vscode/
 .idea/
