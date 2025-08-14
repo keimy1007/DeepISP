@@ -19,7 +19,7 @@ matplotlib.rcParams['figure.titlesize'] = 15
 
 # 必要な外部データの読み込み
 import matplotlib.image as mpimg
-images = [mpimg.imread(f'figures/hfa_map_images/image{i}.png') for i in range(5)]
+images = [mpimg.imread(f'images/hfa_map/image{i}.png') for i in range(5)]
 coord_isp = pd.read_csv("datasets/solid/coord_isp.csv", index_col=0)
 coord_hfa24 = pd.read_csv("datasets/solid/coord_hfa24.csv", index_col=0)
 
