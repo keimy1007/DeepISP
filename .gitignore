@@ -23,9 +23,6 @@ venv/
 # Model weights (exclude real models but keep sample ones)
 *.pth
 *.pt
-# Keep sample models in params directory
-!params/ISP2HFA/simulated_240318/model_simulated_20240304000001.pth
-!params/ISP2HFAprog/simulated_240318/model_simulated_20240318000001_0.pth
 
 # IDEs
 .vscode/
