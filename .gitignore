@@ -31,7 +31,3 @@ venv/
 *.tmp
 *.bak
 *~
-
-# src folder
-src/
-EOF < /dev/null
