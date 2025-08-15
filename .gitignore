@@ -17,8 +17,8 @@ venv/
 # Data and outputs
 /datasets/
 !/datasets_sample/
-/outputs/
-/figures/
+outputs*
+figures*
 
 # IDEs
 .vscode/
